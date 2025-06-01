@@ -1,0 +1,18 @@
+# Ignore environment and sensitive files
+.env
+
+# Ignore compiled Java class files
+*.class
+
+# Ignore IDE and OS specific files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Ignore build and run scripts (optional, jika tidak ingin di-push)
+# build.bat
+# run.bat
+
+# Ignore library JARs (optional, jika ingin dependency diunduh manual)
+# lib/
