@@ -5,9 +5,10 @@ Aplikasi kursus online berbasis Java console sederhana.
 ## Kebutuhan
 
 - Java JDK 8 atau lebih baru
-- MySQL Server (sudah berjalan dan database sudah dibuat)
+- MySQL Server (XAMPP, dsb) (sudah berjalan dan database sudah dibuat)
 - Library MySQL Connector/J (sudah ada di folder `lib/`)
 - PowerShell (untuk Windows) atau Command Prompt
+- Git (untuk kolaborasi)
 
 ## Struktur Folder
 
@@ -21,13 +22,13 @@ Aplikasi kursus online berbasis Java console sederhana.
 ├── database/
 │   └── db.sql              # Skema database MySQL
 ├── helper/                 # Fungsi bantuan (PasswordHelper, dst)
-├── lib/                    # Library eksternal (Mysql.jar, dst)
+├── lib/                    # Library eksternal (mysql.jar, dst)
 ├── model/                  # Model data (User, dst)
 ├── view/                   # Tampilan (AuthView, dst)
 ├── .env.example            # Contoh konfigurasi koneksi database
 ├── .gitignore              # File yang diabaikan git
 ├── build.bat               # Script build (Windows CMD/PowerShell)
-├── run.bat                 # Script run (Windows CMD/PowerShell)
+├── run.bat1                # Script run (Windows CMD/PowerShell)
 └── README.md               # Dokumentasi
 ```
 
@@ -49,26 +50,22 @@ Aplikasi kursus online berbasis Java console sederhana.
 ### PowerShell (Windows)
 
 ```powershell
-# Build semua file Java
-./build.ps1
-# Jalankan aplikasi
-./run.ps1
+./build.ps1   # Build semua file Java
+./run.ps1     # Jalankan aplikasi
 ```
 
 ### Command Prompt (Windows)
 
 ```bat
-build.bat
-run.bat
+build.bat     @REM Build semua file Java
+run.bat       @REM Jalankan aplikasi
 ```
 
 ### Manual (tanpa script)
 
 ```powershell
-# Compile semua file Java di seluruh folder
 $files = Get-ChildItem -Recurse -Filter *.java | ForEach-Object { $_.FullName }
 javac -cp ".;lib/*" -d . $files
-# Jalankan aplikasi
 java -cp ".;lib/*" app.Main
 ```
 
@@ -81,4 +78,40 @@ java -cp ".;lib/*" app.Main
 
 ---
 
-Selamat mencoba!
+## Cara Berkontribusi
+
+1. **Clone** repository ini.
+   ```powershell
+   git clone https://github.com/UrayMR/kursusonline.git
+   ```
+2. **Buat branch baru** untuk setiap perubahan/fitur:
+   ```powershell
+   git checkout -b nama-branch-anda
+   ```
+3. Buat file .env apabila belum ada. Salin dari .env.example:
+   ```powershell
+   cp .env.example .env
+   ```
+4. **Build dan test** aplikasi secara lokal:
+   ```powershell
+   ./build.ps1
+   ./run.ps1
+   ```
+5. **Commit** perubahan Anda:
+   ```powershell
+   git add .
+   git commit -m "Deskripsi perubahan"
+   ```
+6. **Push** branch ke remote:
+   ```powershell
+   git push origin nama-branch-anda
+   ```
+7. Menunggu pemilik repo melakukan penggabungan ke branch main.
+8. **Mengambil perubahan terbaru** dari branch main :
+   ```powershell
+   git pull origin main
+   ```
+
+---
+
+Selamat mencoba dan berkontribusi!
