@@ -19,6 +19,7 @@ Aplikasi kursus online berbasis Java console sederhana.
 │   ├── conn.java           # Koneksi database
 │   └── EnvLoader.java      # Loader file .env
 ├── controller/             # Logika program (AuthController, dst)
+├── dao/                    # Query program (AuthDAO, dst)
 ├── database/
 │   └── db.sql              # Skema database MySQL
 ├── helper/                 # Fungsi bantuan (PasswordHelper, dst)
