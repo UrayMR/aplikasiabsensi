@@ -1,41 +1,32 @@
 package model;
 
-import config.conn;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
 public class User {
-    private int id;
-    private String name;
-    private String email;
-    private String role;
+    protected int id;
+    protected String name;
+    protected String role;
+    protected String nim; 
 
-    public User(int id, String name, String email, String role) {
+    public User() {}
+
+    public User(int id, String name, String role, String nim) {
         this.id = id;
         this.name = name;
-        this.email = email;
         this.role = role;
+        this.nim = nim;
     }
 
-    public static boolean emailExists(String email) {
-        try {
-            conn koneksi = new conn();
-            Connection db = koneksi.getConnection();
-            String sql = "SELECT id FROM users WHERE email = ?";
-            PreparedStatement stmt = db.prepareStatement(sql);
-            stmt.setString(1, email);
-            ResultSet rs = stmt.executeQuery();
-            return rs.next();
-        } catch (Exception e) {
-            System.out.println("Error emailExists: " + e.getMessage());
-        }
-        return false;
-    }
-
-    // Getter
     public int getId() { return id; }
     public String getName() { return name; }
-    public String getEmail() { return email; }
     public String getRole() { return role; }
+    public String getNim() { return nim; }
+
+    public void setId(int id) { this.id = id; }
+    public void setName(String name) { this.name = name; }
+    public void setRole(String role) { this.role = role; }
+    public void setNim(String nim) { this.nim = nim; }
+
+    public void showMenu() {
+        // Default: tidak ada menu
+        System.out.println("Menu tidak tersedia untuk user ini.");
+    }
 }
