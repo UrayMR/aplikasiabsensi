@@ -1,27 +1,21 @@
 package controller;
 
-import config.conn;
-import helper.PasswordHelper;
+import dao.AuthDAO;
 import model.User;
 import model.Admin;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class AuthController {
+    private AuthDAO authDAO;
+
+    public AuthController() {
+        this.authDAO = new AuthDAO();
+    }
+
     public User login(String nim, String password) {
         try {
-            conn koneksi = new conn();
-            Connection db = koneksi.getConnection();
-
-            String sql = "SELECT * FROM users WHERE nim = ? AND password = ?";
-            PreparedStatement stmt = db.prepareStatement(sql);
-            stmt.setString(1, nim);
-            stmt.setString(2, PasswordHelper.hashPassword(password));
-            ResultSet rs = stmt.executeQuery();
-
-            if (rs.next()) {
+            ResultSet rs = authDAO.getUserByNimAndPassword(nim, password);
+            if (rs != null && rs.next()) {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
                 String nimAuth = rs.getString("nim");
