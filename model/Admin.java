@@ -1,13 +1,15 @@
 package model;
 
+import view.admin.AdminMenuView;
+
 public class Admin extends User {
     public Admin(int id, String name, String nim) {
-        super(id, name, "admin", "0");
+        super(id, name, "admin", nim);
     }
 
     @Override
     public void showMenu() {
-        view.AdminView adminView = new view.AdminView();
-        adminView.showMenu(this);
+        AdminMenuView adminView = new AdminMenuView(this);
+        adminView.showMenu();
     }
 }

@@ -26,24 +26,25 @@ public class Main {
 
                 String menu = scanner.nextLine();
 
-                if (menu.equals("1")) {
-                    user = authView.loginPage();
-                    if (user != null && user.getRole().equals("admin")) {
+                switch (menu) {
+                    case "1":
+                        user = authView.loginPage();
+                        if (user != null && user.getRole().equals("admin")) {
+                            user.showMenu();
+                        } else {
+                            System.out.println("Login gagal atau anda bukan admin.");
+                        }
+                        break;
+                    case "2":
+                        user = new Guest();
                         user.showMenu();
-                    } else {
-                        System.out.println("Login gagal atau anda bukan admin.");
-                    }
-                }
-                
-                if (menu.equals("2")) {
-                    user = new Guest();
-                    user.showMenu();
-                    continue;
-                }
-                if (menu.equals("3")) {
-                    System.out.println("Terima kasih telah menggunakan aplikasi ini.");
-                    running = false;
-                    continue;
+                        break;
+                    case "3":
+                        System.out.println("Terima kasih telah menggunakan aplikasi ini.");
+                        running = false;
+                        break;
+                    default:
+                        System.out.println("Pilihan tidak valid. Silakan coba lagi.");
                 }
             }
         } finally {

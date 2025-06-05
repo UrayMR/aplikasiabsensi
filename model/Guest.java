@@ -1,6 +1,6 @@
 package model;
 
-import view.AbsenView;
+import view.absen.AbsenMenuView;
 
 public class Guest extends User {
     public Guest() {
@@ -9,7 +9,7 @@ public class Guest extends User {
 
     @Override
     public void showMenu() {
-        AbsenView absenView = new AbsenView();
+        AbsenMenuView absenView = new AbsenMenuView();
         absenView.showMenu();
     }
 }
