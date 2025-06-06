@@ -22,7 +22,7 @@ public class AuthController {
                 String role = rs.getString("role");
                 switch (role) {
                     case "admin":
-                        return new Admin(id, name, nimAuth);
+                        return new Admin(id, nimAuth, name, password);
                     default:
                         return null;
                 }
