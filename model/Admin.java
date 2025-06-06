@@ -3,8 +3,8 @@ package model;
 import view.admin.AdminMenuView;
 
 public class Admin extends User {
-    public Admin(int id, String name, String nim) {
-        super(id, name, "admin", nim);
+    public Admin(int id, String nim, String name, String password) {
+        super(id, nim, name, password, "admin");
     }
 
     @Override
