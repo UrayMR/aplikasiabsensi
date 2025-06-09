@@ -1,9 +1,7 @@
 package controller;
 
 import model.Absensi;
-import dao.AbsensiDAO;  
-import annotation.*;
-
+import dao.AbsensiDAO;
 
 public class AbsensiController {
 
@@ -15,9 +13,8 @@ public class AbsensiController {
         this.absensiDAO = new AbsensiDAO();
     }
 
-    // POST request untuk menangani absensi
-    @PostMapping("/input")
-    public String inputAbsen(@RequestParam("nim") String nim, @RequestParam("jenisAbsen") String jenisAbsen) {
+    // Method untuk menangani input absensi
+    public String inputAbsen(String nim, String jenisAbsen) {
         if (nim == null || nim.isEmpty() || !nim.matches("\\d{9}")) {
             return "NIM tidak valid!";
         }
