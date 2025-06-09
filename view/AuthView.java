@@ -45,7 +45,7 @@ public class AuthView {
 
         boolean success = authController.register(name, nim, password);
         if (success) {
-            System.out.println("Registrasi berhasil! Silakan login sebagai karyawan.");
+            System.out.println("Registrasi berhasil! Silahkan lakukan absensi.");
         } else {
             System.out.println("Registrasi gagal. NIM mungkin sudah terdaftar.");
         }
