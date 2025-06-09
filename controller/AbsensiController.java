@@ -4,8 +4,7 @@ import model.Absensi;
 import dao.AbsensiDAO;  
 import annotation.*;
 
-@RestController
-@RequestMapping("/absen")
+
 public class AbsensiController {
 
     // Inisialisasi AbsensiDAO
