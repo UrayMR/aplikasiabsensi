@@ -1,6 +1,6 @@
-package com.example.aplikasiabsensi.dao;
+package dao;
 
-import com.example.aplikasiabsensi.model.Absensi;
+import model.Absensi;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
