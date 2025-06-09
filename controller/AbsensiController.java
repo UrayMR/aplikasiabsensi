@@ -1,8 +1,8 @@
-package com.example.aplikasiabsensi.controller;
+package controller;
 
-import com.example.aplikasiabsensi.model.Absensi;
-import com.example.aplikasiabsensi.dao.AbsensiDAO;  
-import org.springframework.web.bind.annotation.*;
+import model.Absensi;
+import dao.AbsensiDAO;  
+import annotation.*;
 
 @RestController
 @RequestMapping("/absen")
