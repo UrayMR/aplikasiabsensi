@@ -1,29 +1,29 @@
-package model;
-
-import java.sql.Date;
+package com.example.aplikasiabsensi.model;
 
 public class Absensi {
-    private int id;
-    private int userId;
-    private Date tanggal;
-    private String status; // hadir, izin, sakit, dll
+    private String nim;
+    private String jenisAbsen;
 
-    public Absensi() {}
-
-    public Absensi(int id, int userId, Date tanggal, String status) {
-        this.id = id;
-        this.userId = userId;
-        this.tanggal = tanggal;
-        this.status = status;
+    // Constructor
+    public Absensi(String nim, String jenisAbsen) {
+        this.nim = nim;
+        this.jenisAbsen = jenisAbsen;
     }
 
-    public int getId() { return id; }
-    public int getUserId() { return userId; }
-    public Date getTanggal() { return tanggal; }
-    public String getStatus() { return status; }
+    // Getter and Setter
+    public String getNim() {
+        return nim;
+    }
 
-    public void setId(int id) { this.id = id; }
-    public void setUserId(int userId) { this.userId = userId; }
-    public void setTanggal(Date tanggal) { this.tanggal = tanggal; }
-    public void setStatus(String status) { this.status = status; }
+    public void setNim(String nim) {
+        this.nim = nim;
+    }
+
+    public String getJenisAbsen() {
+        return jenisAbsen;
+    }
+
+    public void setJenisAbsen(String jenisAbsen) {
+        this.jenisAbsen = jenisAbsen;
+    }
 }
