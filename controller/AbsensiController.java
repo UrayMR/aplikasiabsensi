@@ -13,7 +13,7 @@ public class AbsenController {
     // POST request untuk menangani absensi
     @PostMapping("/input")
     public String inputAbsen(@RequestParam("nim") String nim, @RequestParam("jenisAbsen") String jenisAbsen) {
-        if (nim == null || nim.isEmpty() || !nim.matches("\\d{8}")) {
+        if (nim == null || nim.isEmpty() || !nim.matches("\\d{9}")) {
             return "NIM tidak valid!";
         }
         if (!jenisAbsen.equals("masuk") && !jenisAbsen.equals("keluar") && !jenisAbsen.equals("izin")) {
