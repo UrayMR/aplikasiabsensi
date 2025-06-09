@@ -11,8 +11,8 @@ public class AbsensiDAO {
     public void simpanAbsensi(Absensi absensi) throws Exception {
         // Koneksi ke database
         String url = "jdbc:mysql://localhost:3306/aplikasiabsensi";
-        String username = "root";  // Ganti dengan username database Anda
-        String password = "password";  // Ganti dengan password database Anda
+        String username = "root";  
+        String password = "password";  
 
         // Query untuk menyimpan absensi
         String query = "INSERT INTO absensi (nim, jenis_absen) VALUES (?, ?)";
