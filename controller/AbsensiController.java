@@ -1,41 +1,29 @@
-const express = require('express');
-const mysql = require('mysql2');
-const bodyParser = require('body-parser');
+package com.example.aplikasiabsensi.controller;
 
-const app = express();
-const port = 3000;
+import com.example.aplikasiabsensi.model.Absen;
+import com.example.aplikasiabsensi.dao.AbsenDAO;  // Pastikan DAO ini sesuai dengan struktur Anda
+import org.springframework.web.bind.annotation.*;
 
-app.use(bodyParser.urlencoded({ extended: true }));
+import java.sql.SQLException;
 
-// Membuat koneksi ke database
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root', 
-  password: '', 
-  database: 'aplikasiabsensi', 
-});
+@RestController
+@RequestMapping("/absen")
+public class AbsenController {
 
-db.connect((err) => {
-  if (err) throw err;
-  console.log('Connected to database');
-});
-
-// Route untuk input absensi
-app.post('/absen', (req, res) => {
-  const { nim, jenis_absen } = req.body;
-
-  const query = `INSERT INTO absensi (nim, jenis_absen) VALUES (?, ?)`;
-  
-  db.query(query, [nim, jenis_absen], (err, result) => {
-    if (err) {
-      console.error('Error inserting data:', err);
-      res.send('Terjadi kesalahan saat absen.');
-    } else {
-      res.send('Absensi berhasil dilakukan!');
+    // POST request untuk menangani absensi
+    @PostMapping("/input")
+    public String inputAbsen(@RequestParam("nim") String nim, @RequestParam("jenis_absen") String jenisAbsen) {
+        // Buat objek absen dan simpan ke database
+        Absen absen = new Absen(nim, jenisAbsen);
+        
+        // Gunakan DAO untuk menyimpan data ke database
+        AbsenDAO absenDAO = new AbsenDAO();
+        try {
+            absenDAO.simpanAbsen(absen);
+            return "Absensi berhasil!";
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "Terjadi kesalahan saat mencatat absensi.";
+        }
     }
-  });
-});
-
-app.listen(port, () => {
-  console.log(`Server berjalan di http://localhost:${port}`);
-});
+}
