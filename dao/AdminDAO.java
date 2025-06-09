@@ -22,6 +22,12 @@ public class AdminDAO {
 
     public List<Absensi> getAllAbsensi() {
         List<Absensi> list = new ArrayList<>();
+        // Cek jika koneksi db null
+        if (this.db == null) {
+            System.out.println("Koneksi database gagal.");
+            return list; // Jika koneksi gagal, kembalikan list kosong
+        }
+
         try {
             String sql = "SELECT * FROM absensi ORDER BY tanggal DESC, id DESC LIMIT 50";
             PreparedStatement stmt = this.db.prepareStatement(sql);
@@ -43,6 +49,12 @@ public class AdminDAO {
 
     public List<Absensi> getLastAbsensiLog() {
         List<Absensi> list = new ArrayList<>();
+        // Cek jika koneksi db null
+        if (this.db == null) {
+            System.out.println("Koneksi database gagal.");
+            return list; // Jika koneksi gagal, kembalikan list kosong
+        }
+
         try {
             String sql = "SELECT * FROM absensi ORDER BY tanggal DESC, id DESC LIMIT 10";
             PreparedStatement stmt = this.db.prepareStatement(sql);
@@ -64,6 +76,12 @@ public class AdminDAO {
 
     public List<Absensi> searchAbsensi(String keyword) {
         List<Absensi> list = new ArrayList<>();
+        // Cek jika koneksi db null
+        if (this.db == null) {
+            System.out.println("Koneksi database gagal.");
+            return list; // Jika koneksi gagal, kembalikan list kosong
+        }
+
         try {
             String sql = "SELECT * FROM absensi WHERE status LIKE ? OR user_id IN (SELECT id FROM users WHERE name LIKE ?) ORDER BY tanggal DESC, id DESC LIMIT 50";
             PreparedStatement stmt = this.db.prepareStatement(sql);
