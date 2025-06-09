@@ -12,16 +12,19 @@ public class AbsenController {
 
     // POST request untuk menangani absensi
     @PostMapping("/input")
-    public String inputAbsen(@RequestParam("nim") String nim, @RequestParam("jenis_absen") String jenisAbsen) {
-        // simpan ke db
-        Absen absen = new Absen(nim, jenisAbsen);
-        
-        //  DAO untuk simpan ke db
-        AbsenDAO absenDAO = new AbsenDAO();
+    public String inputAbsen(@RequestParam("nim") String nim, @RequestParam("jenisAbsen") String jenisAbsen) {
+        if (nim == null || nim.isEmpty() || !nim.matches("\\d{8}")) {
+            return "NIM tidak valid!";
+        }
+        if (!jenisAbsen.equals("masuk") && !jenisAbsen.equals("keluar") && !jenisAbsen.equals("izin")) {
+            return "Jenis absen tidak valid!";
+        }
+
+        Absensi absen = new Absensi(nim, jenisAbsen);
         try {
-            absenDAO.simpanAbsen(absen);
+            absensiDAO.simpanAbsensi(absen);
             return "Absensi berhasil!";
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return "Terjadi kesalahan saat mencatat absensi.";
         }
