@@ -12,7 +12,7 @@ public class AbsensiDAO {
         // Koneksi ke database
         String url = "jdbc:mysql://localhost:3306/aplikasiabsensi";
         String username = "root";  
-        String password = "password";  
+        String password = "";  
 
         // Query untuk menyimpan absensi
         String query = "INSERT INTO absensi (nim, jenis_absen) VALUES (?, ?)";
