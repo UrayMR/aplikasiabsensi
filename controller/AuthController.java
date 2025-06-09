@@ -33,6 +33,10 @@ public class AuthController {
         return null;
     }
 
+    public boolean register(String name, String nim, String password) {
+        return authDAO.registerUser(name, nim, password);
+    }
+
     public void logout() {
         System.out.println("Logout berhasil.");
     }

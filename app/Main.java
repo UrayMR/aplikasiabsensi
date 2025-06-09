@@ -21,8 +21,9 @@ public class Main {
                 System.out.println("\n==========");
                 System.out.println("1. Login Admin");
                 System.out.println("2. Absensi Karyawan");
-                System.out.println("3. Keluar");
-                System.out.print("Pilih menu (1/2/3): ");
+                System.out.println("3. Register Karyawan");
+                System.out.println("4. Keluar");
+                System.out.print("Pilih menu (1/2/3/4): ");
 
                 String menu = scanner.nextLine();
 
@@ -40,6 +41,9 @@ public class Main {
                         user.showMenu();
                         break;
                     case "3":
+                        authView.registerPage();
+                        break;
+                    case "4":
                         System.out.println("Terima kasih telah menggunakan aplikasi ini.");
                         running = false;
                         break;

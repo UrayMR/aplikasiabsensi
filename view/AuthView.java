@@ -32,6 +32,25 @@ public class AuthView {
         }
     }
 
+    public void registerPage() {
+        System.out.println("\n==========");
+        System.out.println("\nREGISTER KARYAWAN");
+        System.out.println("\n==========");
+        System.out.print("NIM: ");
+        String nim = scanner.nextLine();
+        System.out.print("Nama: ");
+        String name = scanner.nextLine();
+        System.out.print("Password: ");
+        String password = scanner.nextLine();
+
+        boolean success = authController.register(name, nim, password);
+        if (success) {
+            System.out.println("Registrasi berhasil! Silakan login sebagai karyawan.");
+        } else {
+            System.out.println("Registrasi gagal. NIM mungkin sudah terdaftar.");
+        }
+    }
+
     public void showLogout() {
         authController.logout();
         System.out.println("Anda telah logout.");

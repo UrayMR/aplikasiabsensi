@@ -48,18 +48,7 @@ public class AbsenFormView extends AbsenView{
             return;
     }
 
-
-    int userId = 0; // Diganti dengan fungsi getUserIdByNim dari AbsensiController
-    if (userId == -1) {
-        System.out.println("NIM tidak ditemukan!");
-        return;
-    }
-    
-    boolean success = false; // Diganti dengan fungsi insertAbsensi dari AbsensiController
-    if (success) {
-        System.out.println("Absensi berhasil dicatat!");
-    } else {
-        System.out.println("Gagal mencatat absensi!");
-    }
+    String hasil = absensiController.inputAbsen(nim, status);
+    System.out.println(hasil);
 }
 }

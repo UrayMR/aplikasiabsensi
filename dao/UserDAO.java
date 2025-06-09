@@ -83,6 +83,27 @@ public class UserDAO {
         return null;
     }
 
+    public User getById(int id) {
+        try {
+            String sql = "SELECT * FROM users WHERE id = ?";
+            PreparedStatement stmt = this.db.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return new User(
+                    rs.getInt("id"),
+                    rs.getString("nim"),
+                    rs.getString("name"),
+                    rs.getString("password"),
+                    rs.getString("role")
+                );
+            }
+        } catch (Exception e) {
+            System.out.println("Gagal mengambil user berdasarkan ID: " + e.getMessage());
+        }
+        return null;
+    }
+
     public boolean update(int id, String name, String password) {
         try {
             String sql;

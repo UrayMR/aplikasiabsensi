@@ -21,6 +21,10 @@ public class AdminController {
         return adminDAO.getAllAbsensi();
     }
 
+    public List<Absensi> getAllAbsensi(int page, int pageSize) {
+        return adminDAO.getAllAbsensi(page, pageSize);
+    }
+
     public List<Absensi> getLastAbsensiLog() {
         return adminDAO.getLastAbsensiLog();
     }
@@ -34,8 +38,8 @@ public class AdminController {
         return userDAO.getAllKaryawan(page, pageSize);
     }
 
-    public boolean insertKaryawan(String name, String nim, String password) {
-        return userDAO.insert(name, nim, password, "karyawan");
+    public boolean insertKaryawan(String name, String nim, String password, String role) {
+        return userDAO.insert(name, nim, password, role);
     }
 
     public User getKaryawanByNim(String nim) {

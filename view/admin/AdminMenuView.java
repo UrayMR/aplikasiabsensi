@@ -1,9 +1,9 @@
 package view.admin;
 
+import java.util.Scanner;
+
 import model.User;
 import view.AdminView;
-
-import java.util.Scanner;
 
 public class AdminMenuView extends AdminView {
     private final AdminAbsensiView absensiView;
@@ -11,15 +11,15 @@ public class AdminMenuView extends AdminView {
 
     public AdminMenuView(User user) {
         super(user, new Scanner(System.in));
-        this.absensiView = new AdminAbsensiView(user, scanner);
-        this.karyawanView = new AdminKaryawanView(user, scanner);
+        this.absensiView = new AdminAbsensiView(user);
+        this.karyawanView = new AdminKaryawanView(user);
     }
 
     public void showMenu() {
         boolean adminMenu = true;
         while (adminMenu) {
             System.out.println("\n=== Halaman Utama Admin ===");
-            System.out.println("Selamat datang, " + user.getName() + " (Admin)");
+            System.out.println("Selamat datang, " + user.getName() + " (" + user.getRole() + ")");
             System.out.println("1. Kelola Karyawan");
             System.out.println("2. Kelola Absensi");
             System.out.println("3. Logout");

@@ -33,4 +33,18 @@ public class AuthDAO {
         }
         return null;
     }
+
+    public boolean registerUser(String name, String nim, String password) {
+        try {
+            String sql = "INSERT INTO users (name, nim, password, role) VALUES (?, ?, ?, 'karyawan')";
+            PreparedStatement stmt = this.db.prepareStatement(sql);
+            stmt.setString(1, name);
+            stmt.setString(2, nim);
+            stmt.setString(3, PasswordHelper.hashPassword(password));
+            return stmt.executeUpdate() > 0;
+        } catch (Exception e) {
+            System.out.println("Register Error: " + e.getMessage());
+        }
+        return false;
+    }
 }

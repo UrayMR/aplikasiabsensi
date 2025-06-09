@@ -9,14 +9,14 @@ CREATE TABLE users (
 );
 
 INSERT INTO users (name, password, role, nim) VALUES
-('admin', 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', '23081010029');
+('admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'admin', '23081010029');
 -- Password admin = admin
 -- Password Hashed using SHA256
 
 CREATE TABLE absensi (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT NOT NULL,
-  tanggal DATE NOT NULL,
+  timestamp DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   status ENUM('hadir', 'izin', 'sakit', 'alpha') NOT NULL DEFAULT 'hadir',
   FOREIGN KEY (user_id) REFERENCES users(id)
 );

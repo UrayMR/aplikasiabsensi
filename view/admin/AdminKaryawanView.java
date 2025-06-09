@@ -1,16 +1,17 @@
 package view.admin;
 
+import java.util.List;
+import java.util.Scanner;
+
 import controller.AdminController;
 import model.User;
 import view.AdminView;
 
-import java.util.List;
-
 public class AdminKaryawanView extends AdminView {
     private final AdminController adminController;
 
-    public AdminKaryawanView(User user, java.util.Scanner scanner) {
-        super(user, scanner);
+    public AdminKaryawanView(User user) {
+        super(user, new Scanner(System.in));
         this.adminController = new AdminController();
     }
 
@@ -82,8 +83,15 @@ public class AdminKaryawanView extends AdminView {
         String nim = scanner.nextLine();
         System.out.print("Masukkan Password: ");
         String password = scanner.nextLine();
+        System.out.print("Masukkan Role (admin/karyawan): ");
+        String role = scanner.nextLine();
 
-        boolean success = adminController.insertKaryawan(name, nim, password);
+        if (!role.equals("admin") && !role.equals("karyawan")) {
+            System.out.println("Role tidak valid. Hanya 'admin' atau 'karyawan' yang diperbolehkan.");
+            return;
+        }
+
+        boolean success = adminController.insertKaryawan(name, nim, password, role);
         if (success) {
             System.out.println("Karyawan berhasil ditambahkan.");
         } else {
