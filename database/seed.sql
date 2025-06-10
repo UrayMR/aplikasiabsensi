@@ -1,7 +1,7 @@
 -- Seeder untuk tabel users
 INSERT INTO users (name, password, role, nim) VALUES
 ('admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'admin', '23081010029'), -- password: admin
-('budi', 'e10adc3949ba59abbe56e057f20f883e', 'karyawan', '23081010030'), -- password: 123456
+('budiono siregar', 'e10adc3949ba59abbe56e057f20f883e', 'karyawan', '23081010030'), -- password: 123456
 ('siti', '25d55ad283aa400af464c76d713c07ad', 'karyawan', '23081010031'), -- password: 12345678
 ('agus', 'e10adc3949ba59abbe56e057f20f883e', 'karyawan', '23081010032'), -- password: 123456
 ('dina', '25d55ad283aa400af464c76d713c07ad', 'karyawan', '23081010033'), -- password: 12345678
@@ -26,7 +26,7 @@ INSERT INTO users (name, password, role, nim) VALUES
 ('gilang', 'e10adc3949ba59abbe56e057f20f883e', 'karyawan', '23081010052'), -- password: 123456
 ('mega', '25d55ad283aa400af464c76d713c07ad', 'karyawan', '23081010053'), -- password: 12345678
 ('arif', 'e10adc3949ba59abbe56e057f20f883e', 'karyawan', '23081010054'), -- password: 123456
-('dwi', '25d55ad283aa400af464c76d713c07ad', 'karyawan', '23081010055'), -- password: 12345678
+('dwi ariyani', '25d55ad283aa400af464c76d713c07ad', 'karyawan', '23081010055'), -- password: 12345678
 ('yani', 'e10adc3949ba59abbe56e057f20f883e', 'karyawan', '23081010056'), -- password: 123456
 ('putri', '25d55ad283aa400af464c76d713c07ad', 'karyawan', '23081010057'), -- password: 12345678
 ('farhan', 'e10adc3949ba59abbe56e057f20f883e', 'karyawan', '23081010058'); -- password: 123456
