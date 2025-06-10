@@ -116,6 +116,4 @@ java -cp ".;lib/*" app.Main
 ---
 
 Selamat mencoba dan berkontribusi!
-Halooo
-
-Jarwo
+Halooo everyonee
