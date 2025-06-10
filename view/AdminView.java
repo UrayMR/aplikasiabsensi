@@ -7,8 +7,8 @@ public abstract class AdminView {
     protected final Scanner scanner;
     protected final User user;
 
-    public AdminView(User user, Scanner scanner) {
+    public AdminView(User user) {
         this.user = user;
-        this.scanner = scanner;
+        this.scanner = new Scanner(System.in);
     }
 }

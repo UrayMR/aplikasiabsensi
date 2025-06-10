@@ -3,7 +3,6 @@ package view.admin;
 import controller.AdminController;
 import model.Absensi;
 import java.util.List;
-import java.util.Scanner;
 
 import model.User;
 import view.AdminView;
@@ -14,7 +13,7 @@ public class AdminAbsensiView extends AdminView {
     private final UserDAO userDAO = new UserDAO();
 
     public AdminAbsensiView(User user) {
-        super(user, new Scanner(System.in));
+        super(user);
         this.adminController = new AdminController();
     }
 

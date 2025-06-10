@@ -1,7 +1,5 @@
 package view.admin;
 
-import java.util.Scanner;
-
 import model.User;
 import view.AdminView;
 
@@ -10,7 +8,7 @@ public class AdminMenuView extends AdminView {
     private final AdminKaryawanView karyawanView;
 
     public AdminMenuView(User user) {
-        super(user, new Scanner(System.in));
+        super(user);
         this.absensiView = new AdminAbsensiView(user);
         this.karyawanView = new AdminKaryawanView(user);
     }

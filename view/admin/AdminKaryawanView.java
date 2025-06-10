@@ -1,7 +1,6 @@
 package view.admin;
 
 import java.util.List;
-import java.util.Scanner;
 
 import controller.AdminController;
 import model.User;
@@ -11,7 +10,7 @@ public class AdminKaryawanView extends AdminView {
     private final AdminController adminController;
 
     public AdminKaryawanView(User user) {
-        super(user, new Scanner(System.in));
+        super(user);
         this.adminController = new AdminController();
     }
 
