@@ -20,33 +20,6 @@ public class AdminDAO {
         }
     }
 
-    public List<Absensi> getAllAbsensi() {
-        List<Absensi> list = new ArrayList<>();
-        // Cek jika koneksi db null
-        if (this.db == null) {
-            System.out.println("Koneksi database gagal.");
-            return list; // Jika koneksi gagal, kembalikan list kosong
-        }
-
-        try {
-            String sql = "SELECT * FROM absensi ORDER BY timestamp DESC, id DESC LIMIT 10";
-            PreparedStatement stmt = this.db.prepareStatement(sql);
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                Absensi a = new Absensi(
-                    rs.getInt("id"),
-                    rs.getInt("user_id"),
-                    rs.getTimestamp("timestamp"),
-                    rs.getString("status")
-                );
-                list.add(a);
-            }
-        } catch (Exception e) {
-            System.out.println("Gagal mengambil data absensi: " + e.getMessage());
-        }
-        return list;
-    }
-
     public List<Absensi> getLastAbsensiLog() {
         List<Absensi> list = new ArrayList<>();
         if (this.db == null) {

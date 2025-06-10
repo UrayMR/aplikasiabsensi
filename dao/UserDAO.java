@@ -25,7 +25,7 @@ public class UserDAO {
         List<User> list = new ArrayList<>();
         try {
             int offset = (page - 1) * pageSize;
-            String sql = "SELECT * FROM users WHERE role = 'karyawan' ORDER BY id ASC LIMIT ? OFFSET ?";
+            String sql = "SELECT * FROM users ORDER BY id ASC LIMIT ? OFFSET ?";
             PreparedStatement stmt = this.db.prepareStatement(sql);
             stmt.setInt(1, pageSize);
             stmt.setInt(2, offset);
@@ -142,7 +142,7 @@ public class UserDAO {
     public List<User> search(String keyword) {
         List<User> list = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM users WHERE (name LIKE ? OR nim LIKE ?) AND role = 'karyawan' ORDER BY id ASC";
+            String sql = "SELECT * FROM users WHERE (name LIKE ? OR nim LIKE ?) ORDER BY id ASC";
             PreparedStatement stmt = this.db.prepareStatement(sql);
             stmt.setString(1, "%" + keyword + "%");
             stmt.setString(2, "%" + keyword + "%");

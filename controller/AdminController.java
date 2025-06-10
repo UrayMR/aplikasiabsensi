@@ -16,11 +16,6 @@ public class AdminController {
         this.userDAO = new UserDAO();
     }
 
-    // ===== Absensi Related =====
-    public List<Absensi> getAllAbsensi() {
-        return adminDAO.getAllAbsensi();
-    }
-
     public List<Absensi> getAllAbsensi(int page, int pageSize) {
         return adminDAO.getAllAbsensi(page, pageSize);
     }
