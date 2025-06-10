@@ -56,8 +56,11 @@ public class AdminAbsensiView extends AdminView {
         }
         System.out.println("\n" + header);
         for (Absensi data : list) {
-            System.out.printf("ID: %d, User ID: %d, Timestamp: %s, Status: %s\n",
-                data.getId(), data.getUserId(), data.getTimestamp(), data.getStatus());
+            // Ambil user berdasarkan userId untuk mendapatkan NIM
+            User user = userDAO.getById(data.getUserId());
+            String nim = user != null ? user.getNim() : "-";
+            System.out.printf("ID: %d, NIM: %s, Timestamp: %s, Status: %s\n",
+                data.getId(), nim, data.getTimestamp(), data.getStatus());
         }
     }
 
